@@ -11,7 +11,7 @@ class PresenceApiController extends Controller
     // ✅ GET /api/presence
     public function index(Request $request)
     {
-        $query = Presence::query();
+         $query = Presence::with('details'); // 🔹 Ambil relasi details
 
         // 🔍 Fitur pencarian berdasarkan nama kegiatan
         if ($request->has('search')) {
